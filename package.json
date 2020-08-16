@@ -1,0 +1,20 @@
+{
+  "name": "types.js",
+  "version": "1.0.0",
+  "description": "Run-time type enforcement for Javascript",
+  "main": "types.js",
+  "scripts": {
+    "test": "node types"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abraham-serafino/types.js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abraham-serafino/types.js/issues"
+  },
+  "homepage": "https://github.com/abraham-serafino/types.js#readme"
+}

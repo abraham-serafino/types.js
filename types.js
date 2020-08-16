@@ -4,11 +4,10 @@ const checkType = expectedType => value => {
     if (typeof value !== 'function') {
       throw new TypeError(`Value must be a function`)
     }
-  } else if (
-    expectedType === 'array' &&
-    (typeof value !== 'object' || !Array.isArray(value))
-  ) {
-    throw new TypeError(`Value must be an array`)
+  } else if (expectedType === 'array') {
+    if (typeof value !== 'object' || !Array.isArray(value)) {
+      throw new TypeError(`Value must be an array`)
+    }
   } else if (typeof value !== expectedType) {
     if (expectedType === 'object') {
       throw new TypeError(`Value must be an object`)
@@ -113,7 +112,7 @@ module.exports.withArgs = (argTypes, actualArgs) => {
 ////////////    EXAMPLES                ///////////////
 ///////////////////////////////////////////////////////
 
-const { number, func, object, string, withArgs } = module.exports
+const { array, func, number, object, string, withArgs } = module.exports
 
 let employee = object({
   name: string('bob'),
@@ -186,3 +185,7 @@ employee(null)
 // decorator, factory method, and even dependency injection patterns, then you
 // should seriously consider learning how to take full advantage of Javascript's
 // functional, dynamically-typed features, instead.
+
+// (I do support arrays, though - just not "typed" ones):
+const listOfValues = array(['Alice', 17.9, null, false])
+console.log(listOfValues()[1])
